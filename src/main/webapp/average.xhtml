@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="template.xhtml">
+
+	<b:container>
+		<h1>Média Acumulada - SELIC</h1>
+		<b:jumbotron>
+			<h:form>
+				<b:dataTable paginated="false" id="tableSelic" value="#{average.averageData}"
+					var="data" select="true" searching="true" selectionMode="multiple">
+					<b:dataTableColumn label="Ano" value="#{data.year}" />
+					<b:dataTableColumn label="Média Acumulada (%)" value="#{data.average}%" />
+				</b:dataTable>
+			</h:form>
+		</b:jumbotron>
+	</b:container>
+	<f:metadata>
+		<f:viewAction action="#{average.setAverage}" />
+	</f:metadata>
+</ui:decorate>
